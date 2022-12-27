@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Weather</title>
+        <link rel="shortcut icon" href="{% static 'img/weather.ico' %}">
+		
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css" rel="stylesheet">
+		
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" rel="stylesheet">
+		
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet">
+        
+        
+	</head>
+	<body>
+		<div class="page-content page-container" id="page-content">
+            <div class="padding">
+                <div class="row container d-flex justify-content-center">
+        <div class="col-lg-8 grid-margin stretch-card">
+                      
+                      <!--weather card-->
+                      <div class="card card-weather">
+                        <div class="card-body">
+                          <div class="card-body p-0">
+                            <form action="" method="POST">
+                              {% csrf_token %}
+                              <input class="weather-date" type="text" placeholder="Enter City Name" name="cityname"/>
+                              <button class="weather-date" type="submit">Enter</button>
+                          </form>
+                        </div>
+                          <div class="weather-date-location">
+                            <br>
+                            <h3>{{city}}, {{country}}</h3>
+                            <p class="text-gray">
+                              <span class="weather-date">{{day}}</span>
+                              <span class="weather-date">{{date}}</span>
+                            </p>
+                          </div>
+                          <div class="weather-data d-flex">
+                            <div class="mr-auto">
+                              <h4 class="display-3">{{temp}}
+                                <span class="symbol">&deg;</span>C</h4>
+                              <p>
+                                {{description}}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body p-0">
+                          <div class="d-flex weakly-weather">
+                            <div class="weakly-weather-item">
+                              <p class="mb-auto">
+                                Feels Like
+                              </p>
+                              <p class="mb-0">
+                                {{feels}}&deg;C
+                              </p>
+                            </div>
+                            <div class="weakly-weather-item">
+                              <p class="mb-auto">
+                                Minimum Temp
+                              </p>
+                              <p class="mb-0">
+                                {{min_temp}}&deg;C
+                              </p>
+                            </div>
+                            <div class="weakly-weather-item">
+                              <p class="mb-auto">
+                                Maximum Temp
+                              </p>
+                              <p class="mb-0">
+                                {{max_temp}}&deg;C
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--weather card ends-->
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+        
+        
+        
+    </body>
+</html>
